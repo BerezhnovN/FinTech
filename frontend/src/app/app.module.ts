@@ -7,10 +7,22 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './сomponents/header/header.component';
 import { SearchComponent } from './сomponents/search/search.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, SearchComponent],
-  imports: [BrowserModule, AppRoutingModule, NoopAnimationsModule, HttpClientModule, CommonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NoopAnimationsModule,
+    HttpClientModule,
+    CommonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
