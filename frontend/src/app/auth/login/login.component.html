@@ -1,0 +1,21 @@
+<form [formGroup]="form">
+  <h2>СОВКОМБАНК</h2>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" placeholder="email" />
+    <mat-error *ngIf="form.controls.email.hasError('required')"> Email is <strong>required</strong> </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Пароль</mat-label>
+    <input type="password" matInput formControlName="password" placeholder="Пароль" />
+    <mat-error *ngIf="form.controls.password.hasError('required')"> Пароль <strong>обязательное поле</strong> </mat-error>
+  </mat-form-field>
+
+  <mat-checkbox class="example-margin" formControlName="save">Запомнить меня</mat-checkbox>
+
+  <button mat-raised-button color="primary" (click)="login()" [disabled]="form.invalid || form.pristine">Продолжить</button>
+
+  <p routerLink="">Зарегистрироваться</p>
+</form>

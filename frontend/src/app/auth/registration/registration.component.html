@@ -1,0 +1,37 @@
+<form [formGroup]="form">
+  <h2>СОВКОМБАНК</h2>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" placeholder="email" />
+    <mat-error *ngIf="form.controls.email.hasError('email')"> Пожалуйста, введите валидный email </mat-error>
+    <mat-error *ngIf="form.controls.email.hasError('required')"> email <strong>обязательное поле</strong> </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Ник</mat-label>
+    <input matInput formControlName="userName" placeholder="Ник" />
+    <mat-error *ngIf="form.controls.userName.hasError('required')"> Ник <strong>обязательное поле</strong> </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Имя</mat-label>
+    <input matInput formControlName="name" placeholder="Имя" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Фамилия</mat-label>
+    <input matInput formControlName="surname" placeholder="Фамилия" />
+    <mat-error *ngIf="form.controls.surname.hasError('required')"> Фамилия <strong>обязательное поле</strong>> </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Пароль</mat-label>
+    <input type="password" matInput formControlName="password" placeholder="Пароль" />
+    <mat-error *ngIf="form.controls.password.hasError('required')"> Пароль <strong>обязательное поле</strong> </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" [disabled]="form.invalid || form.pristine" (click)="registration()">Продолжить</button>
+
+  <p>Уже есть аккаунт? <a routerLink="">Войти</a></p>
+</form>
