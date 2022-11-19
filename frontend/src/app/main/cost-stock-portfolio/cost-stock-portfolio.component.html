@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="cost">
+    <h2>Стоимость портфеля</h2>
+    <table>
+      <tr *ngFor="let item of mock">
+        <td>{{ item.name }}</td>
+        <td>{{ item.cost }} &#8381;</td>
+      </tr>
+    </table>
+  </div>
+  <div class="analitics">
+    <h2>Аналитика</h2>
+    <ul>
+      <li><a>Активы</a></li>
+      <li><a>Компании</a></li>
+      <li><a>Отрасли</a></li>
+      <li><a>Валюта</a></li>
+    </ul>
+  </div>
+</div>
