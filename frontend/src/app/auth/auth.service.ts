@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 export interface RegistrationBody {
   username: string;
-  first_name?: string;
+  first_name: string;
   last_name: string;
   email: string;
   password: string;

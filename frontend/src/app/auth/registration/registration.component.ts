@@ -56,9 +56,8 @@ export class RegistrationComponent implements OnInit {
       last_name: this.surnameCtrl.value,
       email: this.emailCtrl.value,
       password: this.passwordCtrl.value,
+      first_name: this.nameCtrl.value
     };
-
-    if (this.nameCtrl.value) body.first_name = this.nameCtrl.value;
 
     console.log(body);
     // this.authSrv.registration(body)
