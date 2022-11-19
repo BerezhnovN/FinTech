@@ -1,0 +1,9 @@
+POST  http://127.0.0.1:8000/auth/jwt/create/ HTTP/1.1
+content-type: application/json
+# Authorization: Token f0b5d14d4ac818020c700962b92cdf87761c7aa4
+
+{
+    "username": "smoky",
+    "password": "tibetritualknife",
+    "email": "smoky@yandex.ru"
+} 
