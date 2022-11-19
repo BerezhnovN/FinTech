@@ -1,5 +1,5 @@
 import { DestroyService } from './../../services/destroy.service';
-import { Subject, takeUntil } from 'rxjs';
+import { forkJoin, Subject, takeUntil } from 'rxjs';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CurrencyService, LatestData } from './currency.service';
 
@@ -11,17 +11,16 @@ import { CurrencyService, LatestData } from './currency.service';
   providers: [CurrencyService, DestroyService],
 })
 export class CurrencyComponent implements OnInit {
-  res = new Subject<LatestData>();
-
+  usd = new Subject<string>();
+  eur = new Subject<string>();
   constructor(public currencySrv: CurrencyService, private readonly destroy$: DestroyService) {}
 
   ngOnInit() {
-    this.currencySrv
-      .getData('USD')
+    forkJoin([this.currencySrv.getData('USD'), this.currencySrv.getData('EUR')])
       .pipe(takeUntil(this.destroy$))
-      .subscribe(data => {
-        this.res.next(data);
-        console.log(data);
+      .subscribe(([usd, eur]) => {
+        this.usd.next(usd.rates?.['RUB'].toFixed(2));
+        this.eur.next(eur.rates?.['RUB'].toFixed(2));
       });
   }
 }
