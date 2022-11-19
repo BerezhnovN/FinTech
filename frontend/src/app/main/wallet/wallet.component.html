@@ -1,1 +1,13 @@
-<p>wallet works!</p>
+<section class="container">
+  <section class="block" *ngFor="let item of data">
+    <div class="left-data">
+      <h2 class="title">{{ item.name }}</h2>
+      <p class="money">{{ item.money }}</p>
+      <p class="card">
+        <span>{{ item.card }}</span> ** <span>{{ item.cardNumber }}</span>
+      </p>
+    </div>
+    <img class="card-image" src="../../../assets/card.svg" alt="банковская карта" />
+  </section>
+  <app-new-bill></app-new-bill>
+</section>

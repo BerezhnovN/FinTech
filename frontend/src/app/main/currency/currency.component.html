@@ -1,23 +1,24 @@
 <div class="block">
   <h2>Валюты</h2>
-  <div class="currency">
-    <div>
-      <h4>Валюта</h4>
-      <p>USD</p>
-      <p class="sub-title">Доллар США</p>
-      <p>EUR</p>
-      <p class="sub-title">Евро</p>
-    </div>
-    <div>
-      <h4>Купить</h4>
-      <p> {{ (res | async)?.base }}</p>
-      <p></p>
-      <p></p>
-      <p></p>
-    </div>
-
-    <div>
-      <h4>Продать</h4>
-    </div>
-  </div>
+  <table class="currency" cellpadding="7px">
+    <tr class="row">
+      <th class="first-column">Валюта</th>
+      <th>Купить</th>
+    </tr>
+    <tr class="row">
+      <td class="first-column">
+        USD<br />
+        <span class="sub-title">Доллар США</span>
+      </td>
+      <td>{{ usd | async }}</td>
+    </tr>
+    <tr class="row">
+      <td class="first-column">
+        EUR<br />
+        <span class="sub-title">Евро</span>
+      </td>
+      <td>{{ eur | async }}</td>
+    </tr>
+  </table>
+  <p class="show-all"><a class="link" routerLink="birge">Смотреть все или обменять</a></p>
 </div>

@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  width: calc(100% - 60px - 22px);
+  max-width: 1440px;
+  height: 60px;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 40px;
+  margin-right: 40px;
+  border-bottom: 2px solid rgb(234, 236, 238);
+}
+
+.title {
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #003791;
+}
+
+.nav {
+  display: flex;
+  column-gap: 45px;
+
+  @media screen and (max-width: 1024px) {
+    column-gap: 30px;
+  }
+}
+
+.nav-link {
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #262626;
+}
+
+.nav-link-active {
+  font-weight: 700;
+}
