@@ -10,6 +10,8 @@ import { OperationHistoryComponent } from './operation-history/operation-history
 import { PaymentsComponent } from './payments/payments.component';
 import { HistoryComponent } from './history/history.component';
 import { BirgeComponent } from './birge/birge.component';
+import { BrokerageAccountComponent } from './brokerage-account/brokerage-account.component';
+import { NewBillComponent } from './new-bill/new-bill.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { BirgeComponent } from './birge/birge.component';
     PaymentsComponent,
     HistoryComponent,
     BirgeComponent,
+    BrokerageAccountComponent,
+    NewBillComponent,
   ],
   imports: [CommonModule, MainRoutingModule],
 })
