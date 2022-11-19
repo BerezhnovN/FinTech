@@ -1,12 +1,10 @@
 .container {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 320px 1fr 320px;
   grid-template-rows: repeat(6, 1fr);
-  // column-gap: 103px;
-  column-gap: 20px;
-  margin-top: 58px;
-  margin: 58px 20px 20px;
+  column-gap: 103px;
+  padding: 58px 20px 20px;
 }
 
 .wallets {
@@ -22,4 +20,7 @@
 .prices {
   grid-column: 3/4;
   grid-row: 1/6;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
 }

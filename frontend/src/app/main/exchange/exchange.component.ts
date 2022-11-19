@@ -10,10 +10,7 @@ import { ExchangeService } from './exchange.service';
   providers: [ExchangeService, DestroyService],
 })
 export class ExchangeComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
