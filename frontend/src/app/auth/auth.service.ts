@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
 
 export interface RegistrationBody {
   username: string;
@@ -13,7 +15,17 @@ export interface RegistrationBody {
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+
+  get localTokenInfo(): { token: string | null} {
+    return {
+      token: localStorage.getItem('accessToken'),
+    };
+  }
+
+
+  constructor(private http: HttpClient, private router: Router) {}
+
+
 
   login(email: string, password: string) {
     return this.http.post(`/api/auth/token/login`, {
@@ -24,5 +36,18 @@ export class AuthService {
 
   registration(body: RegistrationBody) {
     return this.http.post(`api/users`, body);
+  }
+
+  isAuthorized(): Observable<boolean> {
+    if (!this.localTokenInfo.token) {
+      return of(false);
+    } else {
+      return of(true)
+    }
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/auth/login']);
   }
 }

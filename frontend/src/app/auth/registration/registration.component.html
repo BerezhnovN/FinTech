@@ -3,7 +3,7 @@
 
   <mat-form-field class="example-full-width">
     <mat-label>Email</mat-label>
-    <input matInput formControlName="email" placeholder="email" />
+    <input type="email" matInput formControlName="email" placeholder="email" />
     <mat-error *ngIf="form.controls.email.hasError('email')"> Пожалуйста, введите валидный email </mat-error>
     <mat-error *ngIf="form.controls.email.hasError('required')"> email <strong>обязательное поле</strong> </mat-error>
   </mat-form-field>
@@ -34,5 +34,5 @@
 
   <button mat-raised-button color="primary" [disabled]="form.invalid || form.pristine" (click)="registration()">Продолжить</button>
 
-  <p>Уже есть аккаунт? <a routerLink="">Войти</a></p>
+  <p>Уже есть аккаунт? <a routerLink="../login">Войти</a></p>
 </form>
