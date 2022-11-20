@@ -1,5 +1,5 @@
 form {
-  height: 100vh;
+  height: 90vh;
   padding: 20px;
   border-radius: 15px;
   display: flex;
@@ -15,5 +15,7 @@ form {
     color: #003791;
   }
 
-
+  .mat-form-field {
+    width: 300px;
+  }
 }
