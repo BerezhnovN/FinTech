@@ -1,3 +1,4 @@
+<!-- добавить в header *ngIf="isAuth" когда будет готова авторизация -->
 <header class="header">
   <h1 class="title">Совкомбанк</h1>
   <nav class="nav">
@@ -7,5 +8,5 @@
     <a class="link nav-link" routerLink="birge" routerLinkActive="nav-link-active">Биржа</a>
   </nav>
   <app-search></app-search>
-  <img src="../../assets/log-out.svg" class="svg-icon" (click)="onLogout()" routerLink="../auth/login"/>
+  <img src="../../assets/log-out.svg" class="svg-icon" (click)="onLogout()" routerLink="../auth/login" />
 </header>

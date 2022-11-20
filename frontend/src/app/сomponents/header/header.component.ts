@@ -7,7 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  isAuth = false;
+
   constructor(private authSrv: AuthService) {}
+
+  ngOnInit(): void {
+    this.authSrv.isAuthorized().subscribe(isAuth => {
+      this.isAuth = isAuth;
+    });
+  }
+
   onLogout(): void {
     this.authSrv.logout();
   }
