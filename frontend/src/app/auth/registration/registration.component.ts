@@ -15,7 +15,7 @@ export interface RegistrationForm {
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent {
   form: FormGroup<RegistrationForm>;
 
   get emailCtrl(): FormControl {
@@ -47,8 +47,6 @@ export class RegistrationComponent implements OnInit {
       password: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(150)]),
     });
   }
-
-  ngOnInit(): void {}
 
   registration() {
     const body: RegistrationBody = {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export interface LoginForm {
@@ -12,7 +12,7 @@ export interface LoginForm {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   form: FormGroup<LoginForm>;
 
   get emailCtrl(): FormControl {
@@ -34,8 +34,6 @@ export class LoginComponent implements OnInit {
       save: new FormControl(false),
     });
   }
-
-  ngOnInit(): void {}
 
   login() {
     if (this.form.invalid) {

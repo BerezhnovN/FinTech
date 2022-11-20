@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './cost-stock-portfolio.component.html',
   styleUrls: ['./cost-stock-portfolio.component.scss'],
 })
+
 export class CostStockPortfolioComponent implements OnInit {
   mock = [
     { name: 'Доллар США', cost: 232 },

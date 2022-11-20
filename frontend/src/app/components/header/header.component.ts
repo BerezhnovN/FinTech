@@ -1,12 +1,13 @@
-import { AuthService } from '../../auth/auth.service';
-import { Component } from '@angular/core';
+import { AuthService } from './../../auth/auth.service';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isAuth = false;
 
   constructor(private authSrv: AuthService) {}
