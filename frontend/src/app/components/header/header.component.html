@@ -1,5 +1,4 @@
-<!-- добавить в header *ngIf="isAuth" когда будет готова авторизация -->
-<header class="header">
+<header class="header" *ngIf="isAuth">
   <h1 class="title">Совкомбанк</h1>
   <nav class="nav">
     <a class="link nav-link" routerLink="main" routerLinkActive="nav-link-active">Главная</a>

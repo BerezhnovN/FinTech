@@ -22,7 +22,7 @@ export class AuthService {
   private readonly baseUrl = 'http://62.84.121.226:8000/'
   get localTokenInfo(): { token: string | null} {
     return {
-      token: localStorage.getItem('accessToken'),
+      token: localStorage.getItem('token'),
     };
   }
 
