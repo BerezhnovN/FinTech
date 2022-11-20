@@ -1,5 +1,7 @@
+import { AuthService } from './../auth.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 export interface LoginForm {
   email: FormControl<string>;
@@ -27,19 +29,26 @@ export class LoginComponent {
     return this.form.controls.save;
   }
 
-  constructor() {
+  constructor(private authSrv: AuthService, private router: Router) {
     this.form = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
-      password: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
       save: new FormControl(false),
     });
   }
 
-  login() {
+  login(): void {
     if (this.form.invalid) {
       return;
     }
 
-    console.log(this.emailCtrl.value, this.passwordCtrl.value, this.saveCtrl.value);
+    this.authSrv.login(this.emailCtrl.value, this.passwordCtrl.value).subscribe(
+      () => {
+        this.router.navigate(['main']);
+      },
+      err => {
+        throw new Error('Ошибка авторизации');
+      }
+    );
   }
 }
