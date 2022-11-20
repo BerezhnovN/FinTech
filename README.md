@@ -17,4 +17,3 @@
 - Angular 14
 - Django
 - PostgreSQL
-- Docker
