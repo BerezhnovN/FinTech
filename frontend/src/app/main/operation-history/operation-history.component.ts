@@ -6,13 +6,8 @@ import { DestroyService } from 'src/app/services/destroy.service';
   templateUrl: './operation-history.component.html',
   styleUrls: ['./operation-history.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ DestroyService],
+  providers: [DestroyService],
 })
-export class OperationHistoryComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class OperationHistoryComponent {
+  constructor() {}
 }

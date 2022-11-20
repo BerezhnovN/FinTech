@@ -1,6 +1,7 @@
+import { Subject } from 'rxjs';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DestroyService } from 'src/app/services/destroy.service';
-import { ExchangeService } from './exchange.service';
+import { ExchangeService, ResData } from './exchange.service';
 
 @Component({
   selector: 'app-exchange',
@@ -10,7 +11,12 @@ import { ExchangeService } from './exchange.service';
   providers: [ExchangeService, DestroyService],
 })
 export class ExchangeComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
+  usd = new Subject<string>();
+  eur = new Subject<string>();
+  constructor(private exchangeSrv: ExchangeService) {}
+  ngOnInit(): void {
+    this.exchangeSrv.getData().subscribe(res =>{
+      this.usd.next(res["USD_RUB"].last_trade)
+    })
+  }
 }
