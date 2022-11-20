@@ -45,9 +45,9 @@ export class AuthService {
       return of(true)
     }
   }
-  
+
   logout() {
     localStorage.clear();
-    this.router.navigateByUrl('/auth/login');
+    this.router.navigate(['/auth/login']);
   }
 }
