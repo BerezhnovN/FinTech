@@ -1,15 +1,18 @@
-<div class="container">
+<section class="container">
   <div class="cost">
-    <h2>Стоимость портфеля</h2>
-    <table>
+    <h2 class="title">Стоимость портфеля</h2>
+    <p class="all-money">
+      {{ allMoney }} &#8381; <span class="grow">+{{ mockGrow }} &#8381; {{ mockPercent }}%</span>
+    </p>
+    <table cellpadding="5">
       <tr *ngFor="let item of mock">
         <td>{{ item.name }}</td>
-        <td>{{ item.cost }} &#8381;</td>
+        <td class="right-column">{{ item.cost }} &#8381;</td>
       </tr>
     </table>
   </div>
   <div class="analitics">
-    <h2>Аналитика</h2>
+    <h2 class="title">Аналитика</h2>
     <ul>
       <li><a>Активы</a></li>
       <li><a>Компании</a></li>
@@ -17,4 +20,4 @@
       <li><a>Валюта</a></li>
     </ul>
   </div>
-</div>
+</section>
