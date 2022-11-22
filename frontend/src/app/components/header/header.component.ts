@@ -7,16 +7,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   isAuth = false;
 
   constructor(private authSrv: AuthService) {}
 
-  ngOnInit(): void {
-    this.authSrv.isAuthorized().subscribe(isAuth => {
-      this.isAuth = isAuth;
-      console.log(this.isAuth)
-    });
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('token');
   }
 
   onLogout(): void {
