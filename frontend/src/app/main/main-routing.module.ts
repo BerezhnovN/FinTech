@@ -7,6 +7,11 @@ import { BirgeComponent } from './birge/birge.component';
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'main',
+  },
+  {
     path: 'main',
     component: MainComponent,
     title: 'Главная страница',
