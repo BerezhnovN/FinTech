@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, of, tap } from 'rxjs';
 
 export interface RegistrationBody {
@@ -11,43 +12,45 @@ export interface RegistrationBody {
 }
 
 export interface Login {
-  auth_token:  string
+  auth_token: string;
 }
+const SERVER_ADDRESS = 'http://62.84.121.226';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly baseUrl = 'http://62.84.121.226:8000/'
-  get localTokenInfo(): { token: string | null} {
+  get localTokenInfo(): { token: string | null } {
     return {
       token: localStorage.getItem('token'),
     };
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  login(email: string, password: string)  {
-    return this.http.post<Login>(`${this.baseUrl}api/auth/token/login`, {
-      email,
-      password,
-    }).pipe(tap(res => this.setToken(res.auth_token)));
+  login(email: string, password: string) {
+    return this.http
+      .post<Login>(`${SERVER_ADDRESS}/api/auth/token/login`, {
+        email,
+        password,
+      })
+      .pipe(tap(res => this.setToken(res.auth_token)));
   }
 
   registration(body: RegistrationBody) {
-    return this.http.post(`${this.baseUrl}api/users/`, body);
+    return this.http.post(`${SERVER_ADDRESS}S/api/users`, body);
   }
 
   isAuthorized(): Observable<boolean> {
     if (!this.localTokenInfo.token) {
       return of(false);
     } else {
-      return of(true)
+      return of(true);
     }
   }
 
   setToken(token: string) {
-    if(token) localStorage.setItem('token', token)
+    if (token) localStorage.setItem('token', token);
   }
 
   logout() {
