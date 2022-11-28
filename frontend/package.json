@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "npx prettier --check --loglevel=warn . && ng lint"
+    "lint": "npx prettier --check --loglevel=warn . && ng lint",
+    "deployServer": "ng build && scp -r ./dist/* komediantto@62.84.121.226:/home/komediantto/FinTech/frontend/dist"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +22,9 @@
     "@angular/platform-browser": "^14.2.11",
     "@angular/platform-browser-dynamic": "^14.2.11",
     "@angular/router": "^14.2.11",
+    "chart.js": "^3.9.1",
     "eslint": "^8.27.0",
+    "lodash": "^4.17.21",
     "prettier": "^2.7.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
@@ -36,6 +39,7 @@
     "@angular-eslint/template-parser": "14.3.0",
     "@angular/cli": "^14.2.10",
     "@angular/compiler-cli": "^14.2.11",
+    "@schematics/angular": "^15.0.1",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.43.0",

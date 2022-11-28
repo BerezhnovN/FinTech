@@ -1,1 +1,10 @@
-<p>birge works!</p>
+<div class="container">
+  <nav class="birge-menu">
+    <a routerLink="portfolio" routerLinkActive="active-link" class="link birge-menu-item">Портфель</a>
+    <a routerLink="" routerLinkActive="active-link" class="link birge-menu-item">Валюта</a>
+  </nav>
+  <div class="chart-price-container">
+    <app-chart-price [data]="valuteData$ | async" class="chart-price"></app-chart-price>
+  </div>
+  <app-form-buy-currency class="form-container"></app-form-buy-currency>
+</div>

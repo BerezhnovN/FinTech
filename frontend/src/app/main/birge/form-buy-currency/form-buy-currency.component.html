@@ -1,0 +1,30 @@
+<section class="form-container">
+  <h3 class="form-title">Заявка USD|RUB</h3>
+  <hr class="bold-line" />
+  <ul class="form-menu">
+    <li class="form-menu-item">Рыночная</li>
+    <li class="form-menu-item">Лимитная</li>
+    <li class="form-menu-item">Отложенная</li>
+  </ul>
+  <form class="form">
+    <div class="currency gradient-border">
+      <p class="currency-text">
+        {{ currency }}<span>{{ currencyPrice }} &#8381;</span>
+      </p>
+    </div>
+    <div class="execute-price">
+      <label class="form-text" for="execute-price">Цена исполнения</label>
+      <input class="gradient-border input" type="text" id="execute-price" placeholder="Рыночная" />
+    </div>
+    <div class="quantity">
+      <label class="form-text" for="quantity">Количество</label>
+      <input class="gradient-border input" type="number" id="quantity" />
+    </div>
+    <p class="form-text current-price gradient-border">Примерная стоимость {{ currentPrice }} &#8381;</p>
+    <p class="form-text commission gradient-border">Комиссия <span>по факту сделки</span></p>
+    <p class="form-text small-p gradient-border">Доступно {{ currencyBirge }}</p>
+    <p class="form-text small-p gradient-border">Доступно {{ currencyUser }}</p>
+    <button class="button button-buy">Покупка</button>
+    <button class="button button-sale">Продажа</button>
+  </form>
+</section>
