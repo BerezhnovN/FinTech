@@ -11,10 +11,10 @@ export interface RegistrationBody {
   password: string;
 }
 
-export interface IAuthToken {
+export interface Login {
   auth_token: string;
 }
-const SERVICE_ADDRESS = 'http://62.84.121.226';
+const SERVER_ADDRESS = 'http://62.84.121.226';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +22,7 @@ const SERVICE_ADDRESS = 'http://62.84.121.226';
 export class AuthService {
   get localTokenInfo(): { token: string | null } {
     return {
-      token: localStorage.getItem('accessToken'),
+      token: localStorage.getItem('token'),
     };
   }
 
@@ -30,19 +30,15 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.http
-      .post<IAuthToken>(`${SERVICE_ADDRESS}/api/auth/token/login`, {
+      .post<Login>(`${SERVER_ADDRESS}/api/auth/token/login`, {
         email,
         password,
       })
-      .pipe(
-        tap(authToken => {
-          localStorage.setItem('accessToken', authToken.auth_token);
-        })
-      );
+      .pipe(tap(res => this.setToken(res.auth_token)));
   }
 
   registration(body: RegistrationBody) {
-    return this.http.post(`${SERVICE_ADDRESS}/api/users/`, body);
+    return this.http.post(`${SERVER_ADDRESS}S/api/users`, body);
   }
 
   isAuthorized(): Observable<boolean> {
@@ -54,7 +50,7 @@ export class AuthService {
   }
 
   setToken(token: string) {
-    if (token) localStorage.setItem('accessToken', token);
+    if (token) localStorage.setItem('token', token);
   }
 
   logout() {

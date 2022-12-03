@@ -12,7 +12,7 @@ export class HeaderComponent {
   constructor(private authSrv: AuthService) {}
 
   isAuthenticated(): boolean {
-    return !!localStorage.getItem('accessToken');
+    return !!localStorage.getItem('token');
   }
 
   onLogout(): void {
