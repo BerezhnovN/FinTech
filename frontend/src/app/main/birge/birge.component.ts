@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartData } from 'chart.js';
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
+import { DestroyService } from 'src/app/services/destroy.service';
 import { ValuteService } from '../services/valute.service';
 
 @Component({
@@ -12,25 +13,28 @@ export class BirgeComponent implements OnInit {
   valuteDataSubject$ = new Subject<ChartData>();
   valuteData$ = this.valuteDataSubject$.asObservable();
 
-  constructor(private readonly _valuteService: ValuteService) {}
+  constructor(private readonly _valuteService: ValuteService, private readonly _destroyService: DestroyService) {}
 
   ngOnInit(): void {
-    this._valuteService.getValuteData().subscribe(valuteData => {
-      const labels: string[] = [];
-      const dataForDataset: number[] = [];
-      for (let key in valuteData.Valute) {
-        labels.push(key);
-        dataForDataset.push(valuteData.Valute[key].Value);
-      }
-      this.valuteDataSubject$.next({
-        labels: labels,
-        datasets: [
-          {
-            label: 'Стоимость валюты в рублях',
-            data: dataForDataset,
-          },
-        ],
+    this._valuteService
+      .getValuteData()
+      .pipe(takeUntil(this._destroyService))
+      .subscribe(valuteData => {
+        const labels: string[] = [];
+        const dataForDataset: number[] = [];
+        for (let key in valuteData.Valute) {
+          labels.push(key);
+          dataForDataset.push(valuteData.Valute[key].Value);
+        }
+        this.valuteDataSubject$.next({
+          labels: labels,
+          datasets: [
+            {
+              label: 'Стоимость валюты в рублях',
+              data: dataForDataset,
+            },
+          ],
+        });
       });
-    });
   }
 }

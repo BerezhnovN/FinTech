@@ -41,8 +41,6 @@ export class ChartPriceComponent implements OnChanges, AfterViewInit {
       this.barChart.options = optionsChanges.currentValue;
       this.barChart.update();
     }
-
-    console.log(this.barChart.options);
   }
 
   ngAfterViewInit(): void {
@@ -53,8 +51,6 @@ export class ChartPriceComponent implements OnChanges, AfterViewInit {
     const context = this.chart?.nativeElement.getContext('2d');
 
     if (!context || this.data) return null;
-
-    console.log(this.data);
 
     const defaultOptions: ChartOptions = {
       backgroundColor: '#003791',
