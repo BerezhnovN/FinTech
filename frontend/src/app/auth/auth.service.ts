@@ -14,7 +14,7 @@ export interface RegistrationBody {
 export interface Login {
   auth_token: string;
 }
-const SERVER_ADDRESS = 'http://62.84.121.226';
+const SERVER_ADDRESS = 'http://158.160.17.144';
 
 @Injectable({
   providedIn: 'root',
@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   registration(body: RegistrationBody) {
-    return this.http.post(`${SERVER_ADDRESS}S/api/users`, body);
+    return this.http.post(`${SERVER_ADDRESS}/api/users/`, body);
   }
 
   isAuthorized(): Observable<boolean> {

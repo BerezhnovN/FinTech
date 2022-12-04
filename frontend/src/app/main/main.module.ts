@@ -15,6 +15,7 @@ import { NewBillComponent } from './new-bill/new-bill.component';
 import { CostStockPortfolioComponent } from './cost-stock-portfolio/cost-stock-portfolio.component';
 import { FormBuyCurrencyComponent } from './birge/form-buy-currency/form-buy-currency.component';
 import { ChartPriceComponent } from './birge/chart-price/chart-price.component';
+import { DestroyService } from '../services/destroy.service';
 
 @NgModule({
   declarations: [
@@ -36,5 +37,6 @@ import { ChartPriceComponent } from './birge/chart-price/chart-price.component';
     ChartPriceComponent,
   ],
   imports: [CommonModule, MainRoutingModule],
+  providers: [DestroyService],
 })
 export class MainModule {}

@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "npx prettier --check --loglevel=warn . && ng lint",
-    "deployServer": "ng build && scp -r ./dist/* komediantto@62.84.121.226:/home/komediantto/FinTech/frontend/dist"
+    "deployServer": "ng build --base-href=/web && scp -r ./dist/* daonik@158.160.17.144:/home/daonik/FinTech/frontend/dist"
   },
   "private": true,
   "dependencies": {
