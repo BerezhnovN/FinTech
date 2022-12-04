@@ -13,6 +13,8 @@ import { BirgeComponent } from './birge/birge.component';
 import { BrokerageAccountComponent } from './brokerage-account/brokerage-account.component';
 import { NewBillComponent } from './new-bill/new-bill.component';
 import { CostStockPortfolioComponent } from './cost-stock-portfolio/cost-stock-portfolio.component';
+import { FormBuyCurrencyComponent } from './birge/form-buy-currency/form-buy-currency.component';
+import { ChartPriceComponent } from './birge/chart-price/chart-price.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { CostStockPortfolioComponent } from './cost-stock-portfolio/cost-stock-p
     BrokerageAccountComponent,
     NewBillComponent,
     CostStockPortfolioComponent,
+    FormBuyCurrencyComponent,
+    ChartPriceComponent,
   ],
   imports: [CommonModule, MainRoutingModule],
 })

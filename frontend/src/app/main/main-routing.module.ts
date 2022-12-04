@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PaymentsComponent } from './payments/payments.component';
 import { HistoryComponent } from './history/history.component';
 import { BirgeComponent } from './birge/birge.component';
+import { AuthGuard } from '../guards/auth.guard';
 
 const routes: Routes = [
   {

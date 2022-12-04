@@ -4,8 +4,8 @@
     <a class="link nav-link" routerLink="main" routerLinkActive="nav-link-active">Главная</a>
     <a class="link nav-link" routerLink="payments" routerLinkActive="nav-link-active">Платежи и переводы</a>
     <a class="link nav-link" routerLink="history" routerLinkActive="nav-link-active">История</a>
-    <a class="nav-link disabled" routerLinkActive="nav-link-active" disabled>Биржа</a>
+    <a class="link nav-link" routerLink="birge" routerLinkActive="nav-link-active">Биржа</a>
   </nav>
   <app-search></app-search>
-  <img src="../../assets/log-out.svg" class="svg-icon" (click)="onLogout()" routerLink="../auth/login" />
+  <img src="../../assets/log-out.svg" class="svg-icon link" (click)="onLogout()" routerLink="../auth/login" />
 </header>

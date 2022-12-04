@@ -1,0 +1,121 @@
+.form-title {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  margin: 23px 0 19px 37px;
+
+  color: #262626;
+}
+
+.bold-line {
+  height: 11px;
+  border: none;
+  background: #d9d9d9;
+}
+
+.form-menu {
+  display: flex;
+  justify-content: center;
+  column-gap: 39px;
+  padding: 0;
+  margin: 14px auto;
+  list-style: none;
+}
+
+.form-menu-item {
+  font-size: 13px;
+  line-height: 16px;
+  color: #262626;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 134px);
+  column-gap: 17px;
+  padding: 0 19px 0 20px;
+}
+
+.currency {
+  grid-column: 1/3;
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  max-width: 285px;
+  height: 58px;
+  margin: 16px auto 20px;
+  padding: 20px;
+}
+
+.gradient-border {
+  border: 1px solid;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-radius: 5px;
+  border-image-source: linear-gradient(to right, #003791, #fc5055);
+}
+
+.currency-text {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-text {
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #262626;
+}
+
+.execute-price {
+  grid-column: 1/2;
+  margin-bottom: 20px;
+}
+
+.quantity {
+  grid-column: 2/3;
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 9px;
+}
+
+.current-price {
+  grid-column: 1/3;
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 9px 10px;
+}
+
+.commission {
+  grid-column: 1/3;
+  margin: 0;
+  margin-bottom: 35px;
+  padding: 9px 10px;
+}
+
+.small-p {
+  margin: 0;
+  margin-bottom: 5px;
+  padding: 9px 10px;
+}
+
+.button {
+  padding: 9px;
+  border-radius: 5px;
+  border: none;
+}
+
+.button-buy {
+  background-color: #003791;
+  color: #fff;
+}
+
+.button-sale {
+  background: #fc5055;
+  color: #262626;
+}

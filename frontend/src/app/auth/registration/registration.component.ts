@@ -39,7 +39,7 @@ export class RegistrationComponent {
     return this.form.controls.password;
   }
 
-  constructor(private authSrv: AuthService, private router: Router) {
+  constructor(private authSrv: AuthService, private readonly router: Router) {
     this.form = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email, Validators.maxLength(254)]),
       userName: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(150)]),
@@ -58,13 +58,13 @@ export class RegistrationComponent {
       first_name: this.nameCtrl.value,
     };
 
-    this.authSrv.registration(body).subscribe(
-      () => {
+    this.authSrv.registration(body).subscribe({
+      next: () => {
         this.router.navigate(['auth/login']);
       },
-      (err) => {
-        throw new Error('Ошибка регистрации');
-      }
-    );
+      error: err => {
+        throw new Error(`Ошибка авторизации ${err}`);
+      },
+    });
   }
 }

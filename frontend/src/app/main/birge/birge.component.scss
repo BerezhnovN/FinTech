@@ -1,0 +1,58 @@
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  grid-template-rows: 50px repeat(5, 1fr);
+  column-gap: 103px;
+  padding: 58px 20px 20px;
+  background: #eeeeee;
+  height: 100vh;
+
+  @media (max-width: 1024px) {
+    column-gap: 50px;
+  }
+}
+
+.birge-menu {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  column-gap: 27px;
+  width: 100%;
+  text-align: center;
+}
+
+.birge-menu-item {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #262626;
+}
+
+.chart-price-container {
+  grid-column: 1/2;
+  grid-row: 2/6;
+  display: flex;
+  width: 100%;
+}
+
+.chart-price {
+  width: 100%;
+}
+
+.form-container {
+  grid-column: 2/3;
+  grid-row: 1/6;
+  max-height: 488px;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.active-link {
+  font-weight: 700;
+}

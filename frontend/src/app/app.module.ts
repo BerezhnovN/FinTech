@@ -10,6 +10,9 @@ import { SearchComponent } from './components/search/search.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { CategoryScale, Chart, BarController, BarElement, LinearScale, PointElement, Tooltip, Legend } from 'chart.js';
+
+Chart.register(CategoryScale, BarController, BarElement, LinearScale, PointElement, Tooltip, Legend);
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, SearchComponent],

@@ -29,7 +29,7 @@ export class LoginComponent {
     return this.form.controls.save;
   }
 
-  constructor(private authSrv: AuthService, private router: Router) {
+  constructor(private readonly authSrv: AuthService, private readonly router: Router) {
     this.form = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
@@ -42,13 +42,13 @@ export class LoginComponent {
       return;
     }
 
-    this.authSrv.login(this.emailCtrl.value, this.passwordCtrl.value).subscribe(
-      () => {
+    this.authSrv.login(this.emailCtrl.value, this.passwordCtrl.value).subscribe({
+      next: () => {
         this.router.navigate(['main']);
       },
-      err => {
-        throw new Error('Ошибка авторизации');
-      }
-    );
+      error: err => {
+        throw new Error(`Ошибка авторизации ${err}`);
+      },
+    });
   }
 }
