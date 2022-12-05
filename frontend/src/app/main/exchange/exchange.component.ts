@@ -1,4 +1,4 @@
-import { Subject } from 'rxjs';
+import { Subject, takeUntil } from 'rxjs';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DestroyService } from 'src/app/services/destroy.service';
 import { ExchangeService, ResData } from './exchange.service';
@@ -13,10 +13,13 @@ import { ExchangeService, ResData } from './exchange.service';
 export class ExchangeComponent implements OnInit {
   usd = new Subject<string>();
   eur = new Subject<string>();
-  constructor(private exchangeSrv: ExchangeService) {}
+  constructor(private exchangeSrv: ExchangeService, private readonly destroy$: DestroyService) {}
   ngOnInit(): void {
-    this.exchangeSrv.getData().subscribe(res =>{
-      this.usd.next(res["USD_RUB"].last_trade)
-    })
+    this.exchangeSrv
+      .getData()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(res => {
+        this.usd.next(res['USD_RUB'].last_trade);
+      });
   }
 }
