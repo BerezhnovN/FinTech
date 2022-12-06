@@ -1,3 +1,5 @@
+import { takeUntil } from 'rxjs';
+import { DestroyService } from './../../services/destroy.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,6 +17,7 @@ export interface RegistrationForm {
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
+  providers: [DestroyService],
 })
 export class RegistrationComponent {
   form: FormGroup<RegistrationForm>;
@@ -39,7 +42,7 @@ export class RegistrationComponent {
     return this.form.controls.password;
   }
 
-  constructor(private authSrv: AuthService, private readonly router: Router) {
+  constructor(private authSrv: AuthService, private readonly router: Router, private readonly destroy$: DestroyService) {
     this.form = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email, Validators.maxLength(254)]),
       userName: new FormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(150)]),
@@ -58,13 +61,16 @@ export class RegistrationComponent {
       first_name: this.nameCtrl.value,
     };
 
-    this.authSrv.registration(body).subscribe({
-      next: () => {
-        this.router.navigate(['auth/login']);
-      },
-      error: err => {
-        throw new Error(`Ошибка авторизации ${err}`);
-      },
-    });
+    this.authSrv
+      .registration(body)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: () => {
+          this.router.navigate(['auth/login']);
+        },
+        error: err => {
+          throw new Error(`Ошибка авторизации ${err}`);
+        },
+      });
   }
 }
